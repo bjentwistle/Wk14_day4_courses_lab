@@ -19,14 +19,16 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
-    private Course customer;
-
+    private Customer customer;
 
     public Booking() {
     }
 
-    public Booking(String date) {
+    public Booking(String date, Course course, Customer customer) {
         this.date = date;
+        this.course = course;
+        this.customer = customer;
+
     }
 
     public Long getId() {
