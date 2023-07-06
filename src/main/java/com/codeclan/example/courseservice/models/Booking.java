@@ -31,6 +31,8 @@ public class Booking {
 
     }
 
+
+
     public Long getId() {
         return id;
     }
@@ -45,5 +47,21 @@ public class Booking {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

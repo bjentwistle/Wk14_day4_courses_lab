@@ -1,6 +1,7 @@
 package com.codeclan.example.courseservice.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,6 +32,7 @@ public class Course {
         this.name = name;
         this.town = town;
         this.starRating = starRating;
+        this.bookings = new ArrayList<>();
     }
 
     public Long getId() {

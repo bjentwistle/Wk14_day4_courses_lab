@@ -3,6 +3,8 @@ package com.codeclan.example.courseservice.controller;
 import com.codeclan.example.courseservice.models.Customer;
 import com.codeclan.example.courseservice.repositories.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +24,8 @@ public class CustomerController {
     }
 
     @GetMapping(value = "/customers/{id}")
-    public Optional<Customer> getCustomer(@PathVariable Long id) {
-        return customerRepo.findById(id);
+    public ResponseEntity getCustomer(@PathVariable Long id) {
+        return new ResponseEntity<>(customerRepo.findById(id), HttpStatus.OK);
     }
 
 }

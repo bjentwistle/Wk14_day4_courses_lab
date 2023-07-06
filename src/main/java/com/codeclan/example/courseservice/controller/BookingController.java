@@ -4,6 +4,8 @@ import com.codeclan.example.courseservice.models.Booking;
 import com.codeclan.example.courseservice.models.Customer;
 import com.codeclan.example.courseservice.repositories.BookingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,9 +24,9 @@ public class BookingController {
         return bookingRepo.findAll();
     }
 
-    @GetMapping(value = "/booking/{id}")
-    public Optional<Booking> getBooking(@PathVariable Long id) {
-        return bookingRepo.findById(id);
+    @GetMapping(value = "/bookings/{id}")
+    public ResponseEntity<Optional<Booking>> getBookingById(@PathVariable Long id) {
+        return new ResponseEntity<>(bookingRepo.findById(id), HttpStatus.OK);
     }
 
 }
